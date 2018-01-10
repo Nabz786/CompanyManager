@@ -1,5 +1,5 @@
 public class EmployeePosition {
     public enum empPosition{
-        Sales, Manager, Cashier
+        SalesRep, Manager, Cashier
     }
 }

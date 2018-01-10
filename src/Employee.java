@@ -5,7 +5,7 @@ public class Employee{
     private static EmployeePosition employeePosition;
 
     public Employee(){
-
+        //Figure out super constructor calls.
     }
 
     public String getfName() {
