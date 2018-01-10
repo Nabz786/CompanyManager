@@ -2,10 +2,14 @@ public class Employee{
 
     private String fName, lName;
     private int empAge, empId;
-    private static EmployeePosition employeePosition;
+    private EmployeePosition employeePosition;
 
-    public Employee(){
-        //Figure out super constructor calls.
+    public Employee(String fName, String lName, int empAge, int empId, EmployeePosition employeePosition){
+        this.fName = fName;
+        this.lName = lName;
+        this.empAge = empAge;
+        this.empId = empId;
+        this.employeePosition = employeePosition;
     }
 
     public String getfName() {
@@ -40,11 +44,9 @@ public class Employee{
         this.empId = empId;
     }
 
-    public static EmployeePosition getEmployeePosition() {
+    public EmployeePosition getEmployeePosition() {
         return employeePosition;
     }
 
-    public static void setEmployeePosition(EmployeePosition employeePosition) {
-        Employee.employeePosition = employeePosition;
-    }
+    public void setEmployeePosition(EmployeePosition employeePosition) { this.employeePosition = employeePosition; }
 }

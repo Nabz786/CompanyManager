@@ -1,5 +1,3 @@
-public class EmployeePosition {
-    public enum empPosition{
+public enum EmployeePosition{
         SalesRep, Manager, Cashier
-    }
 }
