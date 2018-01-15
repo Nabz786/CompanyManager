@@ -4,6 +4,7 @@ public class SalesRep extends Employee {
         super(fName, lName, empAge, empId, employeePosition);
     }
 
+    //find the respective manager, then send them a message
     private void contactManager(String message){
 
     }
