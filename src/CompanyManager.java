@@ -1,9 +1,8 @@
-import java.awt.event.ComponentAdapter;
 import java.util.ArrayList;
 
 public class CompanyManager {
 
-    private ArrayList<Employee> employeeList;
+    private static ArrayList<Employee> employeeList;
 
     public CompanyManager(){
         employeeList = new ArrayList<>();
