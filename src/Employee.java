@@ -2,13 +2,15 @@ public class Employee{
 
     private String fName, lName;
     private int empAge, empId;
+    private double empSalary;
     private EmployeePosition employeePosition;
 
-    public Employee(String fName, String lName, int empAge, int empId, EmployeePosition employeePosition){
+    public Employee(String fName, String lName, int empAge, int empId, double empSalary, EmployeePosition employeePosition){
         this.fName = fName;
         this.lName = lName;
         this.empAge = empAge;
         this.empId = empId;
+        this.empSalary = empSalary;
         this.employeePosition = employeePosition;
     }
 
