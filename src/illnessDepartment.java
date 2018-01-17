@@ -1,4 +1,8 @@
 public enum  illnessDepartment {
-    Cardiovascular
+    Cardiovascular,
+    Respitory,
+    EarNoseThroat,
+    Neuro,
+    Pediatric
     //add more later
 }
