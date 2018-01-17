@@ -15,7 +15,7 @@ public enum illnessDepartment {
 
     //Below are the various locations in a hospital
     EmergencyRoom,
-    Aneasthetics,
+    Anaesthetics,
     IntensiveCare,
     Surgery,
     MRI,
