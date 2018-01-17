@@ -1,3 +1,7 @@
 public enum EmployeePosition{
-        Nurse, Doctor, Surgeon, LabTechnichian
+    Nurse,
+    Doctor,
+    Surgeon,
+    LabTechnichian,
+    Custodian,
 }
