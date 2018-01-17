@@ -20,5 +20,6 @@ public enum illnessDepartment {
     Surgery,
     MRI,
     Catscan,
-    Receiving
+    Reception,
+    Xray
 }
