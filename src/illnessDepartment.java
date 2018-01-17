@@ -1,8 +1,24 @@
-public enum  illnessDepartment {
-    Cardiovascular,
-    Respitory,
+public enum illnessDepartment {
+    Cardiology,
     EarNoseThroat,
-    Neuro,
-    Pediatric
-    //add more later
+    Geriatric,
+    Gastroenterology,
+    Gynaecology,
+    Haematology,
+    Pediatrics,
+    Neurology,
+    Oncology,
+    Opthamology,
+    Orthopedics,
+    Urology,
+    Pyschiatry,
+
+    //Below are the various locations in a hospital
+    EmergencyRoom,
+    Aneasthetics,
+    IntensiveCare,
+    Surgery,
+    MRI,
+    Catscan,
+    Receiving
 }
