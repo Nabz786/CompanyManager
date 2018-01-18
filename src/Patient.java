@@ -26,11 +26,11 @@ public class Patient {
         this.illness = illnessDepartment;
     }
 
-    private void setAssignedNurse(Nurse nurse){
+    private void assignNurse(Nurse nurse){
         this.assignedNurse = nurse;
     }
 
-    private void setAssignedDoctor(Doctor doctor){
+    private void assignDoctor(Doctor doctor){
         this.assignedDoctor = doctor;
     }
 
