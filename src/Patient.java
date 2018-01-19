@@ -23,7 +23,7 @@ public class Patient {
     }
 
     private void setIllnessDepartment(illnessDepartment illnessDepartment){
-        this.illness = illnessDepartment;
+        this.illnessCategory = illnessDepartment;
     }
 
     private void assignNurse(Nurse nurse){
