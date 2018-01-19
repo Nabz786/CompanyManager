@@ -23,5 +23,4 @@ public class PatientLocation {
     public illnessDepartment getIllnessDepartment(){
         return illnessDepartment;
     }
-
 }

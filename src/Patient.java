@@ -2,9 +2,9 @@ import java.util.Date;
 
 public class Patient {
 
-    private String fName, lName, Symptoms;
+    private String fName, lName, patientSymptoms;
     private Date dateOfBirth;
-    private illnessDepartment illness;
+    private illnessDepartment illnessCategory;
     private PatientLocation patientLocation;
     private int patientID;
     private Nurse assignedNurse;
@@ -16,9 +16,9 @@ public class Patient {
         this.fName = fName;
         this.lName = lName;
         this.dateOfBirth = dateOfBirth;
-        this.illness = illness;
+        this.illnessCategory = illness;
         this.patientID = patientID;
-        this.Symptoms = symptoms;
+        this.patientSymptoms = symptoms;
         this.patientLocation = new PatientLocation(illnessDepartment.Reception, 000);
     }
 
