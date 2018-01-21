@@ -8,6 +8,6 @@ TODO:
 - [ ] Add all necessary basic classes for basic functionality
 - [ ] Start working on GUI, add necessary UI's for various rooms in the hospital
 - [ ] Refactor and test completely
-- [ ] Implement and SQL backend to hold employees and patients
+- [ ] Implement an SQL backend to hold employees and patients
 - [ ] Refactor and test again
 - [ ] Done for now
