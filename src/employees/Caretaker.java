@@ -11,10 +11,10 @@ import java.util.ArrayList;
 public interface Caretaker {
 
     /** List of patients a doctor or nurse has assigned to them.**/
-    ArrayList<Patient> myPatients = new ArrayList<>();
+    ArrayList<Patient> patientList = new ArrayList<>();
 
     /**
-     * Adds a patient to the list of patiens a caretaker is working with
+     * Adds a patient to the list of patients a caretaker is working with
      * @param p Patient to add
      */
     void assignPatient(Patient p);
