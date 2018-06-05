@@ -1,9 +1,14 @@
 package patients;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Date;
 import employees.Doctor;
 import employees.Nurse;
+import hmanager.DatabaseConnectionManager;
 import hmanager.illnessDepartment;
+
+import static hmanager.DatabaseConnectionManager.getConnection;
 
 
 public class Patient {
@@ -46,23 +51,41 @@ public class Patient {
 
     private String getPatientFullName() { return this.fName + " " + this.lName; }
 
-    private double getPatientAge(){ return calcPatientAge(); }
+    /**
+     * Adds a new patient to the local sql database
+     * @param patientID  Assigned patient ID.
+     * @param firstName  Patients first name.
+     * @param lastName  Patients last name.
+     * @throws Exception  Throws exception if a connection to the local database cannot be made.
+     */
+    private static void addNewPatient(int patientID, String firstName, String lastName) throws Exception {
+        Connection con = getConnection();
+        Statement statement = con.createStatement();
+        String sqlStatement = "INSERT INTO patientdata VALUES ( " + "'"
+                +Integer.toString(patientID) + "','" + firstName + "','" + lastName+ "')";
+        statement.executeUpdate(sqlStatement);
+        con.close();
+    }
 
-    //in this method take the date of birth of the patient and calculate their age
-    private double calcPatientAge(){
-        double temp = 1.0;
-        return temp;
+    /**
+     * Removes a patient from the patient database using the spcified ID.
+     * @param patientID The patients ID.
+     * @throws Exception Throws exception if a conneciton to the local database cannot be made.
+     */
+    private static void removePatient(int patientID) throws Exception {
+        Connection con = getConnection();
+        Statement statement = con.createStatement();
+        String sqlStatement = "DELETE FROM patientdata WHERE PatientID = '" + patientID + "'" ;
+        statement.executeUpdate(sqlStatement);
+        con.close();
     }
 
     private Date getDateOfBirth(){
         return this.dateOfBirth;
     }
 
-    public static void main(String[] args) {
-        // TODO Must find a way to calculate date so it doesnt return results compared to epoch time.
-        Patient p = new Patient("John", "Doe", new Date(11/11/2011), illnessDepartment.Reception,
-                001, "Headache, nausea");
-        System.out.println(p.getPatientFullName() + "              test");
-        System.out.println(p.getDateOfBirth());
+    public static void main(String[] args) throws Exception {
+        addNewPatient(223, "John", "Smith");
+        //removePatient(124);
     }
 }
