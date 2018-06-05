@@ -1,13 +1,5 @@
 # HospitalManager
 A neat application to manage your hospital. 
-Mainly written in Java, with a GUI designed with JavaFX and Scene-Builder.
+Mainly written in Java with an SQL backend and a GUI designed with JavaFX and Scene-Builder.
 
-TODO:
 
-- [x] Implement a basic hello world style architecture
-- [ ] Add all necessary basic classes for basic functionality
-- [ ] Start working on GUI, add necessary UI's for various rooms in the hospital
-- [ ] Refactor and test completely
-- [ ] Implement an SQL backend to hold employees and patients
-- [ ] Refactor and test again
-- [ ] Done for now
