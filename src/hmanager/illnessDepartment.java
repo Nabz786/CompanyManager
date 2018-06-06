@@ -14,8 +14,6 @@ public enum illnessDepartment {
     Orthopedics,
     Urology,
     Pyschiatry,
-
-    //Below are the various locations in a hospital
     EmergencyRoom,
     Anaesthetics,
     IntensiveCare,
