@@ -105,3 +105,6 @@ public class Patient {
         getAllPatients();
     }
 }
+
+//According to Java api for sql, use executeUpdate() if you are using insert, delete, or update statements
+//Note: executeQuery returns one result set object
