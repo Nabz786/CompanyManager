@@ -9,7 +9,7 @@ public class DatabaseConnectionManager {
         Class.forName(driver);
         String url = "jdbc:mysql://nvinstance.cli0ucsmllzj.us-east-2.rds.amazonaws.com:3306/HospitalManagementProject";
         String username = "nabz_master";
-        String password = "nabza340"; //replace password here
+        String password = "abc12345"; //replace password here
         Connection conn = DriverManager.getConnection(url, username, password);
         System.out.println("Connected");
         return conn;
