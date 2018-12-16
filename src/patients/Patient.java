@@ -1,110 +1,64 @@
 package patients;
 
-import java.sql.*;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
-import employees.Doctor;
-import employees.Nurse;
-import hmanager.illnessDepartment;
-
-import static hmanager.DatabaseConnectionManager.executeStatement;
-import static hmanager.DatabaseConnectionManager.getConnection;
-
-/**
- * Patient class allows user to add, remove, and manage patients within the hospitals database.
- * @author Nabeel Vali.
- * @version 0.1 Summer 2018.
- */
 public class Patient {
 
-    /** This is the patients observed type of illness**/
-    private illnessDepartment illnessCategory;
+    private SimpleIntegerProperty patientId, nurseId, doctorId;
 
-    /** The patients location in the hospital**/
-    private Nurse assignedNurse;
-    private Doctor assignedDoctor;
+    private SimpleStringProperty fName;
+    private SimpleStringProperty lName;
+    private SimpleStringProperty pAddress;
+    private SimpleStringProperty pSymptoms;
+    private SimpleStringProperty hospitalDep;
+    private SimpleStringProperty dateOfBirth;
 
-
-
-    private void assignNurse(Nurse nurse){
-        this.assignedNurse = nurse;
+    //There may be an issue here with specifying dob of type string with SQL of type date
+    public Patient(int patientId, String fName, String lName, String pAddress,
+                   String pSymptoms, String dateOfBirth, String hospitalDep, int nurseId, int doctorId) {
+        this.patientId = new SimpleIntegerProperty(patientId);
+        this.fName = new SimpleStringProperty(fName);
+        this.lName = new SimpleStringProperty(lName);
+        this.pAddress = new SimpleStringProperty(pAddress);
+        this.pSymptoms = new SimpleStringProperty(pSymptoms);
+        this.dateOfBirth = new SimpleStringProperty(dateOfBirth);
+        this.hospitalDep = new SimpleStringProperty(hospitalDep);
+        this.nurseId = new SimpleIntegerProperty(nurseId);
+        this.doctorId = new SimpleIntegerProperty(doctorId);
     }
 
-    private void assignDoctor(Doctor doctor){
-        this.assignedDoctor = doctor;
+    public int getPatientId() {
+        return patientId.get();
     }
 
-//    private String getPatientFullName() { return this.fName + " " + this.lName; }
-
-    /**
-     * Adds a new patient to the local sql database
-     * @param patientID  Assigned patient ID.
-     * @param firstName  Patient's first name.
-     * @param lastName  Patient's last name.
-     * @param dateOfBirth Patient's DOB.
-     * @param patientSymptoms Patient's experienced symptoms.
-     * @throws Exception  Throws exception if a connection to the local database cannot be made.
-     */
-    private static void addNewPatient(final int patientID, final String firstName, final String lastName,
-                                      final String dateOfBirth, final String patientSymptoms) throws Exception {
-        String sqlStatement = "INSERT INTO patientdata VALUES ( " + "'"
-                + Integer.toString(patientID) + "','" +
-                firstName + "','" +
-                lastName + "','" +
-                java.sql.Date.valueOf(dateOfBirth) + "','" +
-                patientSymptoms + "','" +
-                illnessDepartment.Reception + "')";
-
-        executeStatement(sqlStatement);
+    public int getNurseId() {
+        return nurseId.get();
     }
 
-    /**
-     * Removes a patient from the patient database using the specified ID.
-     * @param patientID The patients ID.
-     * @throws Exception Throws exception if a conneciton to the local database cannot be made.
-     */
-    private static void removePatient(final int patientID) throws Exception {
-        String sqlStatement = "DELETE FROM patientdata WHERE PatientID = '"
-                + patientID + "'" ;
-
-        executeStatement(sqlStatement);
+    public int getDoctorId() {
+        return doctorId.get();
     }
 
-    /**
-     * Per the specified patientID, a patients location in the hospital will be updated with the
-     * passed in location param.
-     * @param patientID The patients ID
-     * @param illnessDepartment Hospital department patient has moved to.
-     * @throws Exception Throws exception if a conneciton to the local database cannot be made.
-     */
-    private static void setPatientLocation(final int patientID, final illnessDepartment illnessDepartment) throws Exception{
-        String sqlStatement = "UPDATE patientdata SET hospitalDepartment='"
-                + illnessDepartment
-                + "'WHERE patientID='"
-                + patientID
-                + "'";
+    public String getFName() { return fName.get(); }
 
-        executeStatement(sqlStatement);
+    public String getLName() {
+        return lName.get();
     }
 
-    private static void getAllPatients() throws Exception {
-        String sqlStatement = "SELECT * FROM patientdata";
-        Connection con = getConnection();
-        Statement st = con.createStatement();
-        ResultSet ste = st.executeQuery(sqlStatement);
-        while(ste.next()) {
-            System.out.print(ste.getString(2));
-        }
-
+    public String getPAddress() {
+        return pAddress.get();
     }
 
-    public static void main(final String[] args) throws Exception {
-       //addNewPatient(224, "John", "Smith", "2011-09-09", "Headcache, Sore Throat, runny nose");
-       //setPatientLocation(224, illnessDepartment.Anaesthetics);
-       //removePatient(223);
-       //removePatient(224);
-        getAllPatients();
+    public String getPSymptoms() {
+        return pSymptoms.get();
+    }
+
+    public String getHospitalDep() {
+        return hospitalDep.get();
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth.get();
     }
 }
-
-//According to Java api for sql, use executeUpdate() if you are using insert, delete, or update statements
-//Note: executeQuery returns one result set object
