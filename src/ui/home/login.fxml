@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="440.0" style="-fx-background-color: #0A1128;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.login.logincontroller">
+   <children>
+      <Text fill="#fefcfb" layoutX="169.0" layoutY="516.0" opacity="0.4" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Your Password?">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Text>
+      <JFXTextField layoutX="63.0" layoutY="294.0" prefWidth="320.0" promptText="Username" style="-fx-prompt-text-fill: #FEFCFB; -fx-text-fill: #FEFCFB;" unFocusColor="#fefcfb">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton id="loginButton" fx:id="loginButton" layoutX="91.0" layoutY="444.0" prefHeight="50.0" prefWidth="264.0" style="-fx-border-color: #fefcfb; -fx-border-width: 0.6;" text="Login" textFill="#fefcfb">
+         <font>
+            <Font name="Segoe UI Bold" size="22.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="145.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/assets/hospital-icon.png" />
+         </image>
+      </ImageView>
+      <JFXPasswordField layoutX="63.0" layoutY="368.0" prefWidth="320.0" promptText="Password" style="-fx-prompt-text-fill: #FEFCFB; -fx-text-fill: #FEFCFB;" unFocusColor="#fefcfb">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </JFXPasswordField>
+   </children>
+</Pane>
