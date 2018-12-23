@@ -1,9 +1,12 @@
-package ui.login;
+package ui.home;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
 import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class logincontroller {
 
@@ -13,12 +16,12 @@ public class logincontroller {
     @FXML
     private void initialize() {
         loginButton.setOnAction(e -> {
-            System.out.println("Logging In!");
+            try {
+                loginmainlauncher.switchScene("test.fxml");
+                System.out.println("here");
+            } catch (Exception exp) {
+                System.out.println(exp);
+            }
         });
-    }
-
-    @FXML
-    private void printHello() {
-
     }
 }

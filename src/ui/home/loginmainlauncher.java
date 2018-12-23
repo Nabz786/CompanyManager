@@ -1,17 +1,32 @@
-package ui.login;
+package ui.home;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import patients.Patient;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import static hmanager.DatabaseConnectionManager.getConnection;
 
 /**
  * This class houses the main launcher for the UI, starting with the login page.
@@ -21,10 +36,10 @@ import java.io.IOException;
 public class loginmainlauncher extends Application {
 
     /** Current Active Stage **/
-    private Stage currentStage;
+    private static Stage currentStage;
 
     /** Current Active Scene**/
-    private Scene currentScene;
+    private static Scene currentScene;
 
     /** Application window width**/
     private final int WINDOW_WIDTH = 1000;
@@ -34,14 +49,18 @@ public class loginmainlauncher extends Application {
 
     private TableView table = new TableView();
 
-    private static Group root_pane;
-
     /**
      * JavaFX version of Main, launches the program
      * @param args
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static void switchScene(final String nextScene) throws IOException, InterruptedException {
+        Parent nextView = FXMLLoader.load(logincontroller.class.getResource("test.fxml"));
+        loginmainlauncher.currentScene = new Scene(nextView);
+        currentStage.setScene(currentScene);
     }
 
     /**
@@ -144,10 +163,10 @@ public class loginmainlauncher extends Application {
 //        currentStage.setScene(scene);
 //        currentStage.show();
 
-        Parent root = FXMLLoader.load(getClass().getResource("ui/login/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         currentStage = primaryStage;
         currentStage.initStyle(StageStyle.UNDECORATED);
-        currentScene = new Scene(root,440,600);
+        currentScene = new Scene(root);
         currentStage.setScene(currentScene);
         currentStage.setResizable(false);
         currentStage.setTitle("Hospital Manager");
