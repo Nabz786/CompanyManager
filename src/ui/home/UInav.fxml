@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="936.0" style="-fx-background-color: #F1F1F1; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.home.homeController">
+   <children>
+      <Rectangle fill="#253b88" height="600.0" stroke="#253b88" strokeType="INSIDE" width="130.0" />
+      <Line endX="695.0" layoutX="241.0" layoutY="45.0" startX="-111.0" stroke="#d5d5d5" />
+      <Text fill="#5e5b5b" fontSmoothingType="LCD" layoutX="449.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hospital Manager">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutY="43.0" prefHeight="350.0" prefWidth="124.0">
+         <children>
+            <JFXButton fx:id="homeBtn" layoutX="38.0" layoutY="24.0" style="-fx-font-smoothing-type: gray;" text="Home" textFill="#9db6ff">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="38.0" layoutY="142.0" style="-fx-font-smoothing-type: gray;" text="Metrics" textFill="#9db6ff">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="38.0" layoutY="82.0" style="-fx-font-smoothing-type: gray;" text="Manage" textFill="#9db6ff">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="38.0" layoutY="200.0" style="-fx-font-smoothing-type: gray;" text="Rooms" textFill="#9db6ff">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="38.0" layoutY="258.0" style="-fx-font-smoothing-type: gray;" text="Support" textFill="#9db6ff">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="13.0" layoutY="22.0">
+               <image>
+                  <Image url="@../../resources/assets/appbar.home.empty.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="13.0" layoutY="124.0">
+         <image>
+            <Image url="@../../resources/assets/appbar.list.gear.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="13.0" layoutY="181.7">
+         <image>
+            <Image url="@../../resources/assets/appbar.graph1.empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="13.0" layoutY="241.0">
+         <image>
+            <Image url="@../../resources/assets/appbar.door.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="13.0" layoutY="299.0">
+         <image>
+            <Image url="@../../resources/assets/appbar.person.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="250.0" layoutX="150.0" layoutY="65.0" stroke="WHITE" strokeType="INSIDE" width="210.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="250.0" layoutX="385.0" layoutY="65.0" stroke="WHITE" strokeType="INSIDE" width="300.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="250.0" layoutX="708.0" layoutY="65.0" stroke="WHITE" strokeType="INSIDE" width="210.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="243.0" layoutX="149.0" layoutY="329.0" stroke="WHITE" strokeType="INSIDE" width="769.0" />
+      <AnchorPane fx:id="pane" layoutX="397.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</Pane>
