@@ -1,13 +1,23 @@
 package ui.Controllers;
 
+import Services.DashboardCountService;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Logger;
 
-public class dashboard {
+public class DashboardController {
 
 
 
@@ -16,11 +26,16 @@ public class dashboard {
     private long lastTimerCall;
 
     @FXML
+    private Label patientCountLbl, nurseCountLbl, docCountLbl;
+
+    @FXML
     private LineChart<String, Number> admissionChart;
+
+    private DashboardCountService dbCS;
 
 
     @FXML
-    public void initialize() {
+    public void initialize() throws Exception{
         XYChart.Series series = new XYChart.Series();
         series.getData().add(new XYChart.Data<String, Number>("Mon",12));
         series.getData().add(new XYChart.Data<String, Number>("Tue",29));
@@ -33,6 +48,27 @@ public class dashboard {
         admissionChart.setVerticalGridLinesVisible(false);
         admissionChart.setStyle("-fx-font-weight:Bold;");
         admissionChart.getData().add(series);
+        updateCounts();
+    }
+
+    private void updateCounts() throws Exception{
+        dbCS = new DashboardCountService();
+        patientCountLbl.setText(Integer.toString(dbCS.getPersonCounts()));
+        nurseCountLbl.setText(Integer.toString(dbCS.getNurseCounts()));
+        docCountLbl.setText(Integer.toString(dbCS.getDoctorCounts()));
+
+        Timeline countUpdater = new Timeline(new KeyFrame(Duration.seconds(15), e-> {
+                try {
+                    patientCountLbl.setText(Integer.toString(dbCS.getPersonCounts()));
+                    nurseCountLbl.setText(Integer.toString(dbCS.getNurseCounts()));
+                    docCountLbl.setText(Integer.toString(dbCS.getDoctorCounts()));
+                    System.out.println("Update");
+                } catch (Exception E) {
+                    System.out.println(E);
+                }
+        }));
+        countUpdater.setCycleCount(Timeline.INDEFINITE);
+        countUpdater.play();
     }
 
     private void update() {
