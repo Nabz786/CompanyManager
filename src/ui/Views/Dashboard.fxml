@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="805.0" style="-fx-background-color: #E0E0E0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Controllers.dashboard">
+   <children>
+      <!--<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f1f1" height="250.0" layoutX="14.0" layoutY="14.0" stroke="#f1f1f1" strokeType="INSIDE" width="210.0" />-->
+      <!--<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f1f1" height="250.0" layoutX="243.0" layoutY="14.0" stroke="#f1f1f1" strokeType="INSIDE" width="320.0" />-->
+      <!--<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f1f1" height="250.0" layoutX="581.0" layoutY="14.0" stroke="#f1f1f1" strokeType="INSIDE" width="210.0" />-->
+      <!--<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f1f1" height="250.0" layoutX="14.0" layoutY="282.0" stroke="#f1f1f1" strokeType="INSIDE" width="775.0" />-->
+      <AnchorPane fx:id="countPane" layoutX="23.0" layoutY="14.0" prefHeight="250.0" prefWidth="210.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 15; -fx-border-radius:15;">
+         <children>
+            <ImageView layoutX="21.0" layoutY="22.0">
+               <image>
+                  <Image url="@../../resources/icons/hospital%20(2).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="132.0" layoutY="31.0" prefHeight="33.0" prefWidth="48.0" style="-fx-font-smoothing-type: gray;" text="250">
+               <font>
+                  <Font name="Segoe UI Bold" size="27.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="21.0" layoutY="93.0">
+               <image>
+                  <Image url="@../../resources/icons/icons8-nurse-48.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="132.0" layoutY="103.0" prefHeight="33.0" prefWidth="48.0" style="-fx-font-smoothing-type: gray;" text="14">
+               <font>
+                  <Font name="Segoe UI Bold" size="27.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="21.0" layoutY="168.0">
+               <image>
+                  <Image url="@../../resources/icons/icons8-doctor-male-48.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="183.0" prefHeight="33.0" prefWidth="48.0" style="-fx-font-smoothing-type: gray;" text="6">
+               <font>
+                  <Font name="Segoe UI Bold" size="27.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="242.0" layoutY="14.0" prefHeight="250.0" prefWidth="320.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <LineChart fx:id="admissionChart" horizontalGridLinesVisible="false" layoutX="-7.0" layoutY="3.0" prefHeight="250.0" prefWidth="320.0" title="Daily Admissions" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></AnchorPane>
+      <AnchorPane layoutX="571.0" layoutY="14.0" prefHeight="250.0" prefWidth="210.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 15; -fx-border-radius:15;" />
+      <AnchorPane layoutX="24.0" layoutY="274.0" prefHeight="250.0" prefWidth="756.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 15; -fx-border-radius:15;" />
+   </children>
+</Pane>

@@ -1,32 +1,16 @@
-package ui.home;
+package ui.Controllers;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import patients.Patient;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-
-import static hmanager.DatabaseConnectionManager.getConnection;
 
 /**
  * This class houses the main launcher for the UI, starting with the login page.
@@ -58,7 +42,7 @@ public class loginmainlauncher extends Application {
     }
 
     public static void switchScene(final String nextScene) throws IOException, InterruptedException {
-        Parent nextView = FXMLLoader.load(logincontroller.class.getResource("test.fxml"));
+        Parent nextView = FXMLLoader.load(logincontroller.class.getResource("../Views/UInav.fxml"));
         loginmainlauncher.currentScene = new Scene(nextView);
         currentStage.setScene(currentScene);
     }
@@ -163,7 +147,7 @@ public class loginmainlauncher extends Application {
 //        currentStage.setScene(scene);
 //        currentStage.show();
 
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Login.fxml"));
         currentStage = primaryStage;
         currentStage.initStyle(StageStyle.UNDECORATED);
         currentScene = new Scene(root);

@@ -17,8 +17,7 @@ public class logincontroller {
     private void initialize() {
         loginButton.setOnAction(e -> {
             try {
-                loginmainlauncher.switchScene("test.fxml");
-                System.out.println("here");
+                loginmainlauncher.switchScene("UInav.fxml");
             } catch (Exception exp) {
                 System.out.println(exp);
             }

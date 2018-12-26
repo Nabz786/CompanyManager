@@ -1,4 +1,4 @@
-package ui.home;
+package ui.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ public class homeController {
 
     @FXML
     private void initialize() throws IOException {
-        Pane test = FXMLLoader.load(getClass().getResource("test.fxml"));
+        Pane test = FXMLLoader.load(getClass().getResource("../Views/Dashboard.fxml"));
         centerContent.getChildren().add(test);
     }
 }
