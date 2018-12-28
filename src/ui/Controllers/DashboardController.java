@@ -4,6 +4,7 @@ import Services.DashboardCountService;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -48,27 +49,30 @@ public class DashboardController {
         admissionChart.setVerticalGridLinesVisible(false);
         admissionChart.setStyle("-fx-font-weight:Bold;");
         admissionChart.getData().add(series);
-        updateCounts();
+        dashUpdater();
     }
 
-    private void updateCounts() throws Exception{
-        dbCS = new DashboardCountService();
-        patientCountLbl.setText(Integer.toString(dbCS.getPersonCounts()));
-        nurseCountLbl.setText(Integer.toString(dbCS.getNurseCounts()));
-        docCountLbl.setText(Integer.toString(dbCS.getDoctorCounts()));
 
-        Timeline countUpdater = new Timeline(new KeyFrame(Duration.seconds(15), e-> {
-                try {
-                    patientCountLbl.setText(Integer.toString(dbCS.getPersonCounts()));
-                    nurseCountLbl.setText(Integer.toString(dbCS.getNurseCounts()));
-                    docCountLbl.setText(Integer.toString(dbCS.getDoctorCounts()));
-                    System.out.println("Update");
-                } catch (Exception E) {
-                    System.out.println(E);
-                }
-        }));
-        countUpdater.setCycleCount(Timeline.INDEFINITE);
-        countUpdater.play();
+    //Important: when closing the application make sure to implement timer.cancel()
+    private void dashUpdater() {
+        dbCS = new DashboardCountService();
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                final int pCount = dbCS.getPersonCounts();
+                final int nCount = dbCS.getNurseCounts();
+                final int dCount = dbCS.getDoctorCounts();
+                System.out.println("Update");
+                Platform.runLater(() -> {
+                    patientCountLbl.setText(Integer.toString(pCount));
+                    nurseCountLbl.setText(Integer.toString(nCount));
+                    docCountLbl.setText(Integer.toString(dCount));
+                });
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 5000);
     }
 
     private void update() {
